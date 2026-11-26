@@ -1,0 +1,5 @@
+contact-sheet.jpg
+node_modules/
+.DS_Store
+*.log
+.openai/
