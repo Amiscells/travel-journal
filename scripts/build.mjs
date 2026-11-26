@@ -16,16 +16,27 @@ const cards=entries.map(j=>`<article class="card" data-search="${esc((j.title+' 
 const home=`${header('',true)}<main id="main" class="wrap"><section class="archive" id="journals" aria-label="全部游记"><div class="tools"><span id="result-count" role="status" aria-live="polite">${entries.length} 篇游记</span><label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="journal-search" type="search" placeholder="搜索游记" aria-label="搜索游记全文"></label></div><div class="grid">${cards}</div><p class="empty" hidden>没有找到匹配的游记。</p></section></main>${footer()}`;
 await fs.writeFile(path.join(out,'index.html'),page('中子流水账','中子流水账',home));
 await fs.mkdir(path.join(out,'journals'),{recursive:true});
-function photoButton(j,p,index){return `<button type="button" class="photo-button" data-photo="../assets/${p.file}" aria-label="放大照片 ${index+1}"><img src="../assets/${p.file}" alt="${esc(j.title)} · 照片 ${index+1}" width="${p.width}" height="${p.height}" loading="lazy" decoding="async"></button>`;}
+function photoButton(j,p,index){return `<button type="button" class="photo-button" data-photo-number="${index+1}" data-photo="../assets/${p.file}" aria-label="放大照片 ${index+1}"><img src="../assets/${p.file}" alt="${esc(j.title)} · 照片 ${index+1}" width="${p.width}" height="${p.height}" loading="lazy" decoding="async"></button>`;}
 for(const [index,j] of entries.entries()){
- const inline=j.photos.filter(p=>p.file!==j.cover).slice(0,3);
- const interval=Math.max(1,Math.ceil(j.paragraphs.length/(inline.length+1)));
- let pIndex=0;
- const figure=pic=>`<figure>${photoButton(j,pic,j.photos.indexOf(pic))}</figure>`;
- const prose=j.paragraphs.map((p,i)=>{let html=`<p>${esc(p)}</p>`;if(!j.inlinePhotos&&(i+1)%interval===0&&pIndex<inline.length)html+=figure(inline[pIndex++]);if(j.inlinePhotos){for(const placement of j.inlinePhotos.filter(x=>x.afterParagraph===i+1)){const pic=j.photos.find(x=>x.file===placement.file);if(pic)html+=figure(pic);}}return html;}).join('');
- const gallery=j.photos.length?`<section class="gallery" aria-label="全部照片"><h2>照片 <small>${j.photos.length}</small></h2><div class="gallery-grid">${j.photos.map((p,i)=>photoButton(j,p,i)).join('')}</div></section>`:'';
+ const media=spec=>{
+  const images=spec.photos.map(n=>{const photo=j.photos[n-1];if(!photo)throw new Error(`Missing photo ${j.slug}/${n}`);return photoButton(j,photo,n-1);}).join('');
+  return `<figure class="media media--${spec.layout||'right'}${spec.photos.length>1?' media--group':''}">${images}</figure>`;
+ };
+ const placed=[];
+ const prose=j.paragraphs.map((text,i)=>{
+  const events=(j.photoLayout||[]).filter(x=>x.paragraph===i+1).map(spec=>{
+   const offset=spec.end?text.length:spec.anchor?text.indexOf(spec.anchor):0;
+   if(offset<0)throw new Error(`Photo anchor not found: ${j.slug}: ${spec.anchor}`);
+   return {spec,offset};
+  }).sort((a,b)=>a.offset-b.offset);
+  let html='',cursor=0;
+  for(const {spec,offset} of events){if(offset>cursor)html+=`<p>${esc(text.slice(cursor,offset))}</p>`;html+=media(spec);placed.push(...spec.photos);cursor=offset;}
+  if(cursor<text.length)html+=`<p>${esc(text.slice(cursor))}</p>`;
+  return `<div class="passage">${html}</div>`;
+ }).join('');
+ if(placed.length!==j.photos.length||new Set(placed).size!==j.photos.length)throw new Error(`Every photo must appear exactly once: ${j.slug}`);
  const prev=entries[index-1],next=entries[index+1];
- const article=`<div class="progress" aria-hidden="true"></div>${header('../')}<main id="main" class="wrap"><a class="back" href="../index.html">← 全部游记</a><div class="article-heading"><h1>${esc(j.title)}</h1><div class="reading">约 ${j.reading} 分钟 · ${j.photos.length} 张照片</div></div>${j.cover?`<img class="article-cover" src="../assets/${j.cover}" alt="${esc(j.title)}的照片" fetchpriority="high">`:''}<article class="article-body" aria-label="${esc(j.title)}正文">${prose}${gallery}</article><nav class="article-nav" aria-label="继续阅读">${prev?`<a href="${prev.slug}.html"><small>← 上一篇</small><span>${esc(prev.title)}</span></a>`:'<span></span>'}${next?`<a href="${next.slug}.html"><small>下一篇 →</small><span>${esc(next.title)}</span></a>`:'<a href="../index.html"><small>全部游记 →</small></a>'}</nav></main>${footer()}<a class="to-top" href="#main" aria-label="回到文章顶部">↑</a>${j.photos.length?`<dialog class="lightbox" aria-label="照片查看器"><button type="button" class="lightbox-close" aria-label="关闭照片">×</button><button type="button" class="lightbox-prev" aria-label="上一张照片">‹</button><img src="../assets/${j.photos[0].file}" alt="照片"><div class="lightbox-caption" aria-live="polite"></div><button type="button" class="lightbox-next" aria-label="下一张照片">›</button></dialog>`:''}`;
+ const article=`<div class="progress" aria-hidden="true"></div>${header('../')}<main id="main" class="wrap"><a class="back" href="../index.html">← 全部游记</a><div class="article-heading"><h1>${esc(j.title)}</h1><div class="reading">约 ${j.reading} 分钟 · ${j.photos.length} 张照片</div></div><article class="article-body" aria-label="${esc(j.title)}正文">${prose}</article><nav class="article-nav" aria-label="继续阅读">${prev?`<a href="${prev.slug}.html"><small>← 上一篇</small><span>${esc(prev.title)}</span></a>`:'<span></span>'}${next?`<a href="${next.slug}.html"><small>下一篇 →</small><span>${esc(next.title)}</span></a>`:'<a href="../index.html"><small>全部游记 →</small></a>'}</nav></main>${footer()}<a class="to-top" href="#main" aria-label="回到文章顶部">↑</a>${j.photos.length?`<dialog class="lightbox" aria-label="照片查看器"><button type="button" class="lightbox-close" aria-label="关闭照片">×</button><button type="button" class="lightbox-prev" aria-label="上一张照片">‹</button><img src="../assets/${j.photos[0].file}" alt="照片"><div class="lightbox-caption" aria-live="polite"></div><button type="button" class="lightbox-next" aria-label="下一张照片">›</button></dialog>`:''}`;
  await fs.writeFile(path.join(out,'journals',j.slug+'.html'),page(j.title+' · 中子流水账',j.title,article,'../'));
 }
 await fs.writeFile(path.join(out,'assets','favicon.svg'),'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><rect width="80" height="80" rx="16" fill="#f6eaf3"/><text x="40" y="56" font-size="48" font-family="sans-serif" text-anchor="middle" fill="#493b45">中</text></svg>');

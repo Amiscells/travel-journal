@@ -51,6 +51,54 @@
         "height": 1279,
         "original": "d071357cff90cd74ea9cc2cab2b04d3.jpg"
       }
+    ],
+    "photoLayout": [
+      {
+        "paragraph": 2,
+        "photos": [
+          4
+        ],
+        "layout": "right"
+      },
+      {
+        "paragraph": 2,
+        "photos": [
+          6
+        ],
+        "layout": "left",
+        "anchor": "小店一间连着一间"
+      },
+      {
+        "paragraph": 2,
+        "photos": [
+          1
+        ],
+        "layout": "pair",
+        "end": true
+      },
+      {
+        "paragraph": 3,
+        "photos": [
+          5
+        ],
+        "layout": "right",
+        "anchor": "比如在热兰遮博物馆"
+      },
+      {
+        "paragraph": 4,
+        "photos": [
+          3,
+          2
+        ],
+        "layout": "pair"
+      },
+      {
+        "paragraph": 5,
+        "photos": [
+          7
+        ],
+        "layout": "left"
+      }
     ]
   },
   {
@@ -86,6 +134,31 @@
         "width": 1280,
         "height": 960,
         "original": "ff37423abab217a7bf204e0cc3d072e.jpg"
+      }
+    ],
+    "photoLayout": [
+      {
+        "paragraph": 2,
+        "photos": [
+          4
+        ],
+        "layout": "right",
+        "anchor": "虽然只在台湾玩两天"
+      },
+      {
+        "paragraph": 3,
+        "photos": [
+          1
+        ],
+        "layout": "left"
+      },
+      {
+        "paragraph": 5,
+        "photos": [
+          2,
+          3
+        ],
+        "layout": "pair"
       }
     ]
   },
@@ -140,6 +213,48 @@
         "width": 1279,
         "height": 1706,
         "original": "ccb8176db70d1d0f98fed9c2351c39f.jpg"
+      }
+    ],
+    "photoLayout": [
+      {
+        "paragraph": 1,
+        "photos": [
+          1
+        ],
+        "layout": "right"
+      },
+      {
+        "paragraph": 3,
+        "photos": [
+          6
+        ],
+        "layout": "left",
+        "anchor": "广州的老街区街道很窄"
+      },
+      {
+        "paragraph": 4,
+        "photos": [
+          2,
+          4
+        ],
+        "layout": "pair"
+      },
+      {
+        "paragraph": 4,
+        "photos": [
+          3,
+          5
+        ],
+        "layout": "pair",
+        "anchor": "这两天有感触的地点有很多"
+      },
+      {
+        "paragraph": 4,
+        "photos": [
+          7
+        ],
+        "layout": "left",
+        "anchor": "石牌村压抑又有活力"
       }
     ]
   },
@@ -238,22 +353,72 @@
         "original": "WhatsApp Image 2026-11-26 at 8.25.42 PM.jpeg"
       }
     ],
-    "inlinePhotos": [
+    "photoLayout": [
       {
-        "afterParagraph": 1,
-        "file": "europe/02.webp"
+        "paragraph": 1,
+        "photos": [
+          2
+        ],
+        "layout": "right"
       },
       {
-        "afterParagraph": 2,
-        "file": "europe/06.webp"
+        "paragraph": 1,
+        "photos": [
+          3,
+          4
+        ],
+        "layout": "pair",
+        "anchor": "卢浮宫的震撼"
       },
       {
-        "afterParagraph": 3,
-        "file": "europe/10.webp"
+        "paragraph": 1,
+        "photos": [
+          1,
+          5
+        ],
+        "layout": "pair",
+        "end": true
       },
       {
-        "afterParagraph": 4,
-        "file": "europe/14.webp"
+        "paragraph": 2,
+        "photos": [
+          6,
+          7
+        ],
+        "layout": "pair"
+      },
+      {
+        "paragraph": 3,
+        "photos": [
+          10
+        ],
+        "layout": "right"
+      },
+      {
+        "paragraph": 3,
+        "photos": [
+          9,
+          8
+        ],
+        "layout": "pair",
+        "anchor": "Cap d’antibes"
+      },
+      {
+        "paragraph": 3,
+        "photos": [
+          11,
+          12
+        ],
+        "layout": "pair",
+        "end": true
+      },
+      {
+        "paragraph": 4,
+        "photos": [
+          14,
+          13
+        ],
+        "layout": "pair"
       }
     ]
   },
@@ -309,6 +474,54 @@
         "height": 1279,
         "original": "bae8ec0d61442bb8215943470a4c42d.jpg"
       }
+    ],
+    "photoLayout": [
+      {
+        "paragraph": 4,
+        "photos": [
+          5
+        ],
+        "layout": "right"
+      },
+      {
+        "paragraph": 4,
+        "photos": [
+          7
+        ],
+        "layout": "left",
+        "anchor": "爬沙丘"
+      },
+      {
+        "paragraph": 4,
+        "photos": [
+          4,
+          1
+        ],
+        "layout": "pair",
+        "end": true
+      },
+      {
+        "paragraph": 5,
+        "photos": [
+          3
+        ],
+        "layout": "right"
+      },
+      {
+        "paragraph": 5,
+        "photos": [
+          6
+        ],
+        "layout": "left",
+        "anchor": "整个景区似乎只有我们几个人"
+      },
+      {
+        "paragraph": 6,
+        "photos": [
+          2
+        ],
+        "layout": "left"
+      }
     ]
   },
   {
@@ -332,6 +545,22 @@
         "width": 1440,
         "height": 1080,
         "original": "2e6c03a0c1f9217e210532c2eb94dc8.jpg"
+      }
+    ],
+    "photoLayout": [
+      {
+        "paragraph": 1,
+        "photos": [
+          2
+        ],
+        "layout": "right"
+      },
+      {
+        "paragraph": 6,
+        "photos": [
+          1
+        ],
+        "layout": "left"
       }
     ]
   },
@@ -369,6 +598,32 @@
         "height": 1706,
         "original": "a2972cfd72a459183790613b2cabb17.jpg"
       }
+    ],
+    "photoLayout": [
+      {
+        "paragraph": 3,
+        "photos": [
+          1
+        ],
+        "layout": "right",
+        "anchor": "晨跑2.8km去吃早饭"
+      },
+      {
+        "paragraph": 4,
+        "photos": [
+          2,
+          3
+        ],
+        "layout": "pair",
+        "anchor": "吃的好便宜"
+      },
+      {
+        "paragraph": 5,
+        "photos": [
+          4
+        ],
+        "layout": "left"
+      }
     ]
   },
   {
@@ -405,6 +660,31 @@
         "height": 810,
         "original": "b9783ec1a6dcf43c7ad97a227755e4c.jpg"
       }
+    ],
+    "photoLayout": [
+      {
+        "paragraph": 3,
+        "photos": [
+          2
+        ],
+        "layout": "right"
+      },
+      {
+        "paragraph": 3,
+        "photos": [
+          1,
+          4
+        ],
+        "layout": "pair",
+        "anchor": "不输南法！"
+      },
+      {
+        "paragraph": 5,
+        "photos": [
+          3
+        ],
+        "layout": "right"
+      }
     ]
   },
   {
@@ -422,6 +702,15 @@
         "width": 1800,
         "height": 831,
         "original": "181833c9a6a1324c3bc67a4b2ca0f79.jpg"
+      }
+    ],
+    "photoLayout": [
+      {
+        "paragraph": 3,
+        "photos": [
+          1
+        ],
+        "layout": "left"
       }
     ]
   },
@@ -464,6 +753,45 @@
         "width": 1279,
         "height": 1706,
         "original": "d4a91eb2b2690c66ffd197a552b0196.jpg"
+      }
+    ],
+    "photoLayout": [
+      {
+        "paragraph": 2,
+        "photos": [
+          1
+        ],
+        "layout": "right"
+      },
+      {
+        "paragraph": 2,
+        "photos": [
+          2
+        ],
+        "layout": "left",
+        "anchor": "泥泞的山路"
+      },
+      {
+        "paragraph": 2,
+        "photos": [
+          3
+        ],
+        "layout": "right",
+        "anchor": "还很有趣的一件事"
+      },
+      {
+        "paragraph": 3,
+        "photos": [
+          5
+        ],
+        "layout": "left"
+      },
+      {
+        "paragraph": 5,
+        "photos": [
+          4
+        ],
+        "layout": "right"
       }
     ]
   }
