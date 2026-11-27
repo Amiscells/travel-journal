@@ -10,12 +10,6 @@
     "cover": "taiwan-autumn/04.webp",
     "photos": [
       {
-        "file": "taiwan-autumn/01.webp",
-        "width": 1497,
-        "height": 1279,
-        "original": "065a6578f17db67cf81a60f37de5b74.jpg"
-      },
-      {
         "file": "taiwan-autumn/02.webp",
         "width": 1279,
         "height": 1706,
@@ -56,30 +50,22 @@
       {
         "paragraph": 2,
         "photos": [
-          4
+          3
         ],
         "layout": "right"
       },
       {
         "paragraph": 2,
         "photos": [
-          6
+          5
         ],
         "layout": "left",
         "anchor": "小店一间连着一间"
       },
       {
-        "paragraph": 2,
-        "photos": [
-          1
-        ],
-        "layout": "pair",
-        "end": true
-      },
-      {
         "paragraph": 3,
         "photos": [
-          5
+          4
         ],
         "layout": "right",
         "anchor": "比如在热兰遮博物馆"
@@ -87,15 +73,15 @@
       {
         "paragraph": 4,
         "photos": [
-          3,
-          2
+          2,
+          1
         ],
         "layout": "pair"
       },
       {
         "paragraph": 5,
         "photos": [
-          7
+          6
         ],
         "layout": "left"
       }
