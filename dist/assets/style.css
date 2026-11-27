@@ -69,3 +69,7 @@
 .home-intro p{font-size:16px;line-height:2.15;margin:0;color:var(--ink);overflow-wrap:anywhere}
 .home-intro::after{content:'';display:block;width:76px;border-bottom:2px solid #fff9ed;margin-top:25px}
 @media(max-width:540px){.home-intro{padding-top:27px}.home-intro p{font-size:16px;line-height:2}.home-intro::after{width:52px;margin-top:22px}}
+
+.article-nav{row-gap:22px}
+.article-nav > a.article-home{grid-column:1;justify-self:start;text-align:left;font-size:13px;color:var(--muted)}
+.article-nav > a.article-home:hover{color:var(--accent)}
