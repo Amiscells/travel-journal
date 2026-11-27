@@ -6,6 +6,7 @@
 
 用 VS Code 打开整个 website 文件夹。需要 Node.js 18 或以上版本。
 
+- 首页开场文字：`content/home-intro.txt`。
 - 文章正文：`content/<slug>/journal.txt`（第一行是标题，之后空行分段）。
 - 游记标题、地点、封面、排序与照片：`content/journals.json`。
 - 样式：`src/style.css`；交互：`src/app.js`。

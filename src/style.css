@@ -63,3 +63,9 @@
  .article-body p{margin-bottom:22px}
 }
 @media(max-width:350px){.article-body .media--left,.article-body .media--right{float:none;width:68%;max-width:230px;margin:18px auto}.article-body .media--pair img{height:150px}}
+
+/* Author-written introduction, above the journal list. */
+.home-intro{max-width:800px;padding-top:40px}
+.home-intro p{font-size:16px;line-height:2.15;margin:0;color:var(--ink);overflow-wrap:anywhere}
+.home-intro::after{content:'';display:block;width:76px;border-bottom:2px solid #fff9ed;margin-top:25px}
+@media(max-width:540px){.home-intro{padding-top:27px}.home-intro p{font-size:16px;line-height:2}.home-intro::after{width:52px;margin-top:22px}}

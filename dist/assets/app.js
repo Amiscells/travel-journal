@@ -1,7 +1,7 @@
 (() => {
  const root=document.documentElement;
  const seasonButton=document.querySelector('.season');
- function setSeason(season){root.dataset.season=season;const summer=season==='summer';seasonButton.textContent=summer?'❄️':'☀️';seasonButton.setAttribute('aria-label',summer?'切换到冬季粉色':'切换到夏季墨绿色');seasonButton.title=summer?'切换到冬季粉色':'切换到夏季墨绿色';document.querySelector('meta[name="theme-color"]').content=summer?'#153f35':'#f6eaf3';}
+ function setSeason(season){root.dataset.season=season;const summer=season==='summer';seasonButton.textContent=summer?'❄️':'☀️';seasonButton.setAttribute('aria-label',summer?'切换到冬季':'切换到夏季');seasonButton.title=summer?'切换到冬季':'切换到夏季';document.querySelector('meta[name="theme-color"]').content=summer?'#153f35':'#f6eaf3';}
  setSeason(root.dataset.season||'winter');
  seasonButton.addEventListener('click',()=>{const s=root.dataset.season==='summer'?'winter':'summer';setSeason(s);try{localStorage.setItem('journal-season',s);}catch{}});
  const search=document.querySelector('#journal-search');
